@@ -160,7 +160,7 @@ EyeGo-User-Activity-Log-Service/
 
 4. **Run tests (optional):**
    ```sh
-   ./tests/test.sh (ensure to replace urls at the top of the file)
+   ./tests/test.sh # ensure to replace urls at the top of the file
    ```
 ---
 
