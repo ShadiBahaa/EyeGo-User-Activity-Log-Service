@@ -9,6 +9,7 @@ EyeGo User Activity Log Service is a scalable, event-driven microservice designe
 ## Features
 
 - **Event-Driven Architecture:** Uses Kafka for asynchronous log processing, decoupling ingestion from storage.
+- **Database Indexing:** Used for different fields in the schema.
 - **Scalable & Cloud-Native:** Easily deployable with Docker Compose or Kubernetes for horizontal scaling and resilience.
 - **RESTful API:** Endpoints for creating, retrieving (with filtering and pagination), and deleting logs.
 - **Robust Data Storage:** MongoDB with auto-incremented numeric IDs for logs.
