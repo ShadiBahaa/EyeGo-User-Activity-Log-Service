@@ -166,7 +166,6 @@ EyeGo-User-Activity-Log-Service/
 
 ## Screenshots
 
-> _Add your screenshots here. Example:_
 
 ### API Health Check
 
