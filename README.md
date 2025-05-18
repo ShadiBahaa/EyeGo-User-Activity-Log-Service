@@ -19,6 +19,33 @@ EyeGo User Activity Log Service is a scalable, event-driven microservice designe
 
 ---
 
+## Architecture Choices
+
+The architecture of the EyeGo User Activity Log Service is designed for scalability, reliability, and maintainability, following modern best practices for cloud-native applications:
+
+- **Event-Driven Microservices:**  
+  By leveraging Kafka as a message broker, the service decouples log ingestion from processing and storage. This allows for asynchronous handling of user activity logs, enabling high throughput and resilience to spikes in traffic.
+
+- **Separation of Concerns (Domain-Driven Design):**  
+  The codebase is organized into clear layers: API (controllers/routes), Application (services), Domain (entities/repositories), and Infrastructure (database and Kafka integrations). This separation makes the codebase easier to maintain, test, and extend.
+
+- **Stateless API Layer:**  
+  The REST API is stateless, making it easy to scale horizontally behind a load balancer in both Docker and Kubernetes environments.
+
+- **Robust Data Storage:**  
+  MongoDB is used for persistent storage of logs, chosen for its flexibility and scalability with large volumes of semi-structured data.
+
+- **Graceful Shutdown and Health Checks:**  
+  The service handles SIGINT/SIGTERM signals to ensure clean shutdown of Kafka and MongoDB connections, preventing data loss or corruption. The `/health` endpoint provides readiness and liveness checks for orchestration platforms.
+
+- **Containerization and Orchestration:**  
+  All components are containerized with Docker, and orchestration is supported via Docker Compose for local development and Kubernetes for production. This ensures consistent environments and easy deployment.
+
+- **Developer Experience:**  
+  Features like hot-reloading (nodemon), modular code, and test scripts are included to streamline development and onboarding for new contributors.
+
+These choices collectively ensure that the service is robust, scalable, and easy to operate in both development and production environments.
+
 ## Project Structure
 ```
 EyeGo-User-Activity-Log-Service/
