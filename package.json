@@ -1,0 +1,45 @@
+{
+  "name": "eyego-task-solution",
+  "version": "1.0.0",
+  "description": "scalable event-driven microservice using Node.js and Kafka for real-time processing",
+  "keywords": [
+    "scalable",
+    "event-driven",
+    "microservice",
+    "Node.js",
+    "Kafka",
+    "MongoDB",
+    "Docker",
+    "K8s",
+    "Cloud",
+    "DDD",
+    "REST"
+  ],
+  "homepage": "https://github.com/ShadiBahaa/real-time-processing-microservice#readme",
+  "bugs": {
+    "url": "https://github.com/ShadiBahaa/real-time-processing-microservice/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShadiBahaa/real-time-processing-microservice.git"
+  },
+  "license": "MIT",
+  "author": "Shadi Bahaa",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "kafkajs": "^2.2.4",
+    "mongoose": "^8.14.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

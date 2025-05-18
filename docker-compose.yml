@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: eyego-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo:27017/eyeGoDB
+      - KAFKA_BROKERS=kafka:9092
+      - KAFKA_CLIENT_ID=eyeGoClient
+      - KAFKA_CONSUMER_GROUP=eyeGoGroup
+      - KAFKA_TOPIC=user-activity-logs
+      - PORT=3000
+    depends_on:
+      - mongo
+      - kafka
+    volumes:
+      - .:/usr/src/app
+    restart: on-failure
+
+  mongo:
+    image: mongo:7
+    container_name: eyego-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: on-failure
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: eyego-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    restart: on-failure
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: eyego-kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    depends_on:
+      - zookeeper
+    restart: on-failure
+
+volumes:
+  mongo_data:

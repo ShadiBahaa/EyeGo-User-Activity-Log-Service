@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eyego-app
+  labels:
+    app: eyego-app
+spec:
+  replicas: N
+  selector:
+    matchLabels:
+      app: eyego-app
+  template:
+    metadata:
+      labels:
+        app: eyego-app
+    spec:
+      containers:
+      - name: eyego-app
+        image: shadi1bahaa/eyego-app:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: MONGO_URI
+          value: "mongodb://eyego-mongo:27017/eyeGoDB"
+        - name: KAFKA_BROKERS
+          value: "eyego-kafka:9092"
+        - name: KAFKA_CLIENT_ID
+          value: "eyeGoClient"
+        - name: KAFKA_CONSUMER_GROUP
+          value: "eyeGoGroup"
+        - name: KAFKA_TOPIC
+          value: "user-activity-logs"
+        - name: PORT
+          value: "3000"

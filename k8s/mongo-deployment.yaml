@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eyego-mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eyego-mongo
+  template:
+    metadata:
+      labels:
+        app: eyego-mongo
+    spec:
+      containers:
+      - name: mongo
+        image: mongo:7
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongo-data
+          mountPath: /data/db
+      volumes:
+      - name: mongo-data
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eyego-mongo
+spec:
+  ports:
+    - port: 27017
+  selector:
+    app: eyego-mongo
