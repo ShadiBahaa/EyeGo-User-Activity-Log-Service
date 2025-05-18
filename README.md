@@ -90,6 +90,7 @@ EyeGo-User-Activity-Log-Service/
 ├── README.md
 ├── package-lock.json
 └── package.json
+└── wait-for-it.sh  (Not written by me. Resource: https://github.com/vishnubob/wait-for-it/)
 ```
 
 ---
@@ -169,15 +170,15 @@ EyeGo-User-Activity-Log-Service/
 
 ### API Health Check
 
-![Health Endpoint Screenshot](screenshots/health.png)
+![Health Endpoint Screenshot](Screenshots/3.png)
 
-### Log Creation
+### Filtering Logs
 
-![Create Log Screenshot](screenshots/create-log.png)
+![Create Log Screenshot](Screenshots/1.png)
 
-### Log Query
+### Getting all Logs
 
-![Query Logs Screenshot](screenshots/query-logs.png)
+![Query Logs Screenshot](Screenshots/2.png)
 
 ---
 
