@@ -158,6 +158,10 @@ EyeGo-User-Activity-Log-Service/
    - Use `kubectl get svc` to find the external IP or NodePort.
    - API will be available on port 3000.
 
+4. **Run tests (optional):**
+   ```sh
+   ./tests/test.sh (ensure to replace urls at the top of the file)
+   ```
 ---
 
 ## Screenshots
