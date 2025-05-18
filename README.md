@@ -20,28 +20,49 @@ EyeGo User Activity Log Service is a scalable, event-driven microservice designe
 ---
 
 ## Project Structure
-
 ```
-src/
-  server.js                # Main entry point
-  api/
-    controllers/           # API controllers (LogController.js)
-    routes/                # Express routes (logRoutes.js)
-  application/             # Application services (LogService.js)
-  domain/
-    entities/              # Domain models (UserActivityLog.js)
-    repositories/          # Repository interfaces (ILogRepository.js)
-  infrastructure/
-    config/                # DB and Kafka config
-    db/                    # MongoDB repository implementation
-    kafka/                 # Kafka producer/consumer
-  shared/                  # Shared utilities
-k8s/                       # Kubernetes manifests
-tests/                     # API test script
-Dockerfile                 # Docker build instructions
-docker-compose.yml         # Docker Compose setup
-.env.example               # Example environment variables
-wait-for-it.sh             # Startup wait script for dependencies
+EyeGo-User-Activity-Log-Service/
+├── k8s/
+│   ├── zookeeper-deployment.yaml
+│   ├── kafka-deployment.yaml
+│   ├── mongo-deployment.yaml
+│   ├── app-deployment.yaml
+│   └── service.yaml
+├── src/
+│   ├── server.js
+│   ├── api/
+│   │   ├── controllers/
+│   │   │   └── LogController.js
+│   │   └── routes/
+│   │       └── logRoutes.js
+│   ├── application/
+│   │   └── LogService.js
+│   ├── domain/
+│   │   ├── entities/
+│   │   │   └── UserActivityLog.js
+│   │   └── repositories/
+│   │       └── ILogRepository.js
+│   ├── infrastructure/
+│   │   ├── config/
+│   │   │   ├── db.js
+│   │   │   └── kafka.js
+│   │   ├── db/
+│   │   │   └── MongoLogRepository.js
+│   │   └── kafka/
+│   │       ├── KafkaConsumer.js
+│   │       └── KafkaProducer.js
+│   └── shared/
+│       └── utils.js
+├── tests/
+│   └── test.sh
+├── .env
+├── .env.example
+├── Dockerfile
+├── docker-compose.yml
+├── LICENSE
+├── README.md
+├── package-lock.json
+└── package.json
 ```
 
 ---
