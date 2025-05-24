@@ -149,6 +149,7 @@ EyeGo-User-Activity-Log-Service/
 
 2. **Apply Kubernetes manifests:**
    ```sh
+   # ensure that u changed <your-dockerhub-username> in the files before starting
    kubectl apply -f k8s/zookeeper-deployment.yaml
    kubectl apply -f k8s/kafka-deployment.yaml
    kubectl apply -f k8s/mongo-deployment.yaml
