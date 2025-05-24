@@ -143,13 +143,12 @@ EyeGo-User-Activity-Log-Service/
 
 1. **Build and push your Docker image (if not using Docker Hub):**
    ```sh
-   docker build -t <your-dockerhub-username>/eyego-app:latest .
-   docker push <your-dockerhub-username>/eyego-app:latest
+   docker build -t shadi1bahaa/eyego-app:latest .
+   docker push shadi1bahaa/eyego-app:latest
    ```
 
 2. **Apply Kubernetes manifests:**
    ```sh
-   # ensure that u changed <your-dockerhub-username> in the files before starting
    kubectl apply -f k8s/zookeeper-deployment.yaml
    kubectl apply -f k8s/kafka-deployment.yaml
    kubectl apply -f k8s/mongo-deployment.yaml
